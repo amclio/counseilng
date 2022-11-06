@@ -1,19 +1,19 @@
-const fileField = document.querySelector('input[type="file"]')
+import { baseUrl } from '../libs/config.js'
+import { supabase } from '../libs/supabase.js'
 
-const baseUrl = 'http://127.0.0.1:5000'
+let user
 
 async function createPost() {
   const titleInputValue = document.querySelector('input#title').value
-  console.log('~ titleInputValue', titleInputValue)
   const contentInputValue = document.querySelector('textarea#content').value
-  console.log('~ contentInputValue', contentInputValue)
+
   fetch(baseUrl + '/articles', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      user_id: '37bf63bc-5359-4536-b6da-a77912d948a0',
+      user_id: user.id,
       title: titleInputValue,
       content: contentInputValue,
     }),
@@ -97,3 +97,13 @@ function createParticle(x, y, type) {
 function removeParticle(e) {
   e.srcElement.effect.target.remove()
 }
+
+async function saveUserData() {
+  const {
+    data: { user: userData },
+  } = await supabase.auth.getUser()
+
+  user = userData
+}
+
+window.addEventListener('load', saveUserData)

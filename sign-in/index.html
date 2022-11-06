@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="./scripts.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>CTQ</title>
   </head>
@@ -25,14 +26,7 @@
           type="password"
           placeholder="Password"
         />
-        <button
-          id="LOGIN_BTN"
-          class="login_btn"
-          type="button"
-          onclick="LoginAPI()"
-        >
-          로그인
-        </button>
+        <button id="LOGIN_BTN" class="login_btn" type="button">로그인</button>
       </form>
 
       <a class="login_bottom" href="/sign-up">회원가입 하시겠습니까?</a>

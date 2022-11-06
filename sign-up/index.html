@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="./scripts.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>CTQ</title>
   </head>
@@ -12,9 +13,9 @@
     <div class="signup_wrapper">
       <div class="signup_logo">Seil</div>
 
-      <form class="signup_form">
+      <form class="signup_form" id="signup_form">
         <input
-          id="SIGNUP_ID"
+          id="SIGNUP_EMAIL"
           class="signup_text"
           type="text"
           placeholder="E-mail"
@@ -31,12 +32,7 @@
           type="password"
           placeholder="Password"
         />
-        <button
-          id="SIGNUP_BTN"
-          class="signup_btn"
-          type="button"
-          onclick="SignUpAPI()"
-        >
+        <button id="SIGNUP_BTN" class="signup_btn" type="button">
           회원가입
         </button>
       </form>
