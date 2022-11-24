@@ -238,8 +238,9 @@ h1 {
 }
 
 .story-section .story {
-  display: flex;
+  display: inline-flex;
   gap: 8px;
   font-size: 0.9rem;
+  font-weight: bold;
   color: #0a0a0a;
 }
