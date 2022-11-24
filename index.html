@@ -5,195 +5,30 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="./scripts.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <title>카운세일링</title>
-    <style>
-      #template {
-        visibility: hidden;
-      }
-
-      #list > #template {
-        visibility: initial;
-      }
-      a {
-        all: unset;
-        cursor: pointer;
-      }
-      .post-item {
-        display: block;
-        margin: 20px;
-        padding: 20px;
-        border-radius: 5px gray;
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-      }
-      .box-container {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 12px;
-        align-items: center;
-      }
-      .title {
-        font-weight: 700;
-        text-align: left;
-        color: soild black;
-        margin-right: 12px;
-      }
-      .date {
-        color: #6f6f6f;
-        font-size: 0.8rem;
-      }
-      .article {
-        color: black;
-        font-size: 0.9rem;
-        max-height: 5rem;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-      }
-      .person {
-        color: black;
-        font-size: 0.8rem;
-        margin-top: 12px;
-      }
-
-      /* 페이지네이션 코드 */
-      .pagination a.active {
-        background-color: #4caf50;
-        color: white;
-      }
-      .page {
-        display: flex;
-        justify-content: center;
-      }
-      .pagination {
-        list-style: none;
-        display: inline-block;
-        padding: 0;
-      }
-      .pagination li {
-        display: inline;
-        text-align: center;
-      }
-      .pagination a {
-        float: left;
-        display: block;
-        font-size: 14px;
-        text-decoration: none;
-        padding: 5px 12px;
-        color: #96a0ad;
-        line-height: 1.5;
-      }
-      .first {
-        margin-right: 50px;
-      }
-      .last {
-        margin-left: 50px;
-      }
-      .first:hover,
-      .last:hover,
-      .left:hover,
-      .right:hover {
-        color: #2e9cdf;
-      }
-
-      .pagination a.active {
-        cursor: default;
-        color: #ffffff;
-        outline: none;
-      }
-      .modal .num {
-        margin-left: 10px;
-        padding: 0;
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        -moz-border-radius: 100%;
-        -webkit-border-radius: 100%;
-        border-radius: 100%;
-      }
-      .modal .num:hover {
-        background-color: #2e9cdf;
-        color: #ffffff;
-      }
-      .modal .num.active,
-      .modal .num:active {
-        background-color: #2e9cdf;
-        cursor: pointer;
-      }
-      .arrow-left {
-        width: 0;
-        height: 0;
-        border-top: 10px soild transparent;
-        border-bottom: 10px soild transparent;
-        border-right: 10px solid blue;
-      }
-      h1 {
-        font-size: 40px;
-        background: linear-gradient(to right top, lightblue, lightgreen);
-        color: transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
-      }
-      .header {
-        margin: 1em 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0 1em;
-      }
-      .header .button-section {
-        display: flex;
-        gap: 8px;
-      }
-      .header .is-login {
-        display: none;
-      }
-      .header a.create-post {
-        color: #3451b2;
-        font-size: 0.9rem;
-        height: fit-content;
-        border: none;
-        font-weight: bold;
-        border-radius: 8px;
-        padding: 0.6em 1em;
-        background-color: #e6edfe;
-      }
-      .header a.create-post:hover {
-        background-color: #d9e2fc;
-      }
-      .header a.create-post:active {
-        background-color: #c6d4f9;
-      }
-      .header a.sign-in {
-        color: #18794e;
-        font-size: 0.9rem;
-        height: fit-content;
-        border: none;
-        font-weight: bold;
-        border-radius: 8px;
-        padding: 0.6em 1em;
-        background-color: #ddf3e4;
-      }
-      .header a.sign-in:hover {
-        background-color: #ccebd7;
-      }
-      .header a.sign-in:active {
-        background-color: #b4dfc4;
-      }
-      .header a.sign-up,
-      .header a.sign-out {
-        color: #006adc;
-        font-size: 0.9rem;
-        height: fit-content;
-        border: none;
-        font-weight: bold;
-        border-radius: 8px;
-        padding: 0.6em 1em;
-      }
-    </style>
   </head>
   <body>
+    <a href="https://new-counseilng.seil-ctq.com" class="banner one">
+      <div class="banner__text">새로운 카운세일링 2 ― 지금 사용해보세요 ✨</div>
+      <div class="banner__icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewbox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+          />
+        </svg>
+      </div>
+    </a>
     <div class="header">
-      <h1>카운세일링</h1>
+      <div class="left-section">
+        <h1>카운세일링</h1>
+      </div>
       <div class="button-section">
         <div class="is-not-login">
           <a href="/sign-in" class="sign-in">로그인</a>
@@ -204,6 +39,27 @@
           <a class="sign-out">로그아웃</a>
         </div>
       </div>
+    </div>
+
+    <div class="story-section">
+      <div class="dash"></div>
+      <p>카운세일링은 어떻게 만들어졌을까요?</p>
+      <a
+        href="https://2022-seil-ctq.notion.site/eb1a23cc23e24854afa19635638c30a3"
+        class="story"
+        >스토리 보러가기
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewbox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+          />
+        </svg>
+      </a>
     </div>
 
     <div id="list"></div>
